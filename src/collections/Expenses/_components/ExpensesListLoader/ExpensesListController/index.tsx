@@ -60,7 +60,7 @@ const ExpensesListController = ({ }: Props) => {
 	return (
 		<>
 			<Centered className="relative h-full px-4 sm:px-0">
-				<H1 className="mb-8 my-20">Expenses</H1>
+				<H1 className="mb-8">Expenses</H1>
 				<ControlPanel
 					selectedMonth={selectedMonth}
 					setSelectedMonth={setSelectedMonth}
