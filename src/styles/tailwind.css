@@ -1,0 +1,11 @@
+/* src/styles/tailwind.css */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Tell Tailwind to scan your custom component folders */
+@source "../components"; 
+@source "../app"; 
+@source "../collections"; 
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

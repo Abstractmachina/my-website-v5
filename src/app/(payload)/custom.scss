@@ -1,0 +1,33 @@
+// @tailwind utilities;
+
+// @layer theme {
+//   @import 'tailwindcss/theme.css';
+// }
+
+// @layer base {
+//   .twp {
+//     @import 'tailwindcss/preflight.css';
+//   }
+
+//   .twp.no-twp {
+//     *,
+//     ::after,
+//     ::before,
+//     ::backdrop,
+//     ::file-selector-button {
+//       all: revert-layer;
+//     }
+//   }
+// }
+
+// @layer components;
+
+// @layer utilities {
+//   @import 'tailwindcss/utilities.css';
+// }
+
+// @import url('./tailwind-admin.css');
+
+// @tailwind base; <- do not addCode feature
+@tailwind components;
+@tailwind utilities;

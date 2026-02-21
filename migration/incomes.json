@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "68b0d5c2d3a8d33dedf56eb8"
+  },
+  "createdAt": {
+    "$date": "2025-08-28T22:18:42.873Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-28T22:18:42.873Z"
+  },
+  "amount": 3180,
+  "description": "MetaXD July",
+  "date": {
+    "$date": "2025-08-22T12:00:00.000Z"
+  },
+  "recurring": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f756ee0a46befcd636a515"
+  },
+  "createdAt": {
+    "$date": "2025-10-21T09:48:30.427Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T09:48:30.427Z"
+  },
+  "amount": 2210,
+  "description": "metaxd August",
+  "date": {
+    "$date": "2025-09-26T12:00:00.000Z"
+  },
+  "recurring": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68fd49c1f9e387713e2bea86"
+  },
+  "createdAt": {
+    "$date": "2025-10-25T22:05:53.284Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-25T22:05:53.284Z"
+  },
+  "amount": 2430,
+  "description": "MetaXD September",
+  "date": {
+    "$date": "2025-10-24T12:00:00.000Z"
+  },
+  "recurring": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6921b1ce68a1edf3359cc675"
+  },
+  "createdAt": {
+    "$date": "2025-11-22T12:51:26.241Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-22T12:51:26.241Z"
+  },
+  "amount": 2400,
+  "description": "MetaXD October",
+  "date": {
+    "$date": "2025-11-16T12:00:00.000Z"
+  },
+  "recurring": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69872a16f78e36c9b7f20eab"
+  },
+  "createdAt": {
+    "$date": "2026-02-07T12:03:34.673Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T12:03:34.673Z"
+  },
+  "amount": 4850,
+  "description": "MetaXD November + December",
+  "date": {
+    "$date": "2025-12-30T12:00:00.000Z"
+  },
+  "recurring": false,
+  "__v": 0
+}]

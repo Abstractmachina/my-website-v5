@@ -1,0 +1,611 @@
+[{
+  "_id": {
+    "$oid": "672a9bb1ffb53c37fe080e2f"
+  },
+  "name": "Coffee",
+  "createdAt": {
+    "$date": "2024-11-05T22:26:57.054Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.219Z"
+  },
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "672a9bf0067f708a9371b5d1"
+  },
+  "name": "medicine",
+  "createdAt": {
+    "$date": "2024-11-05T22:28:00.128Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:07.264Z"
+  },
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "672a9c15067f708a9371b5ea"
+  },
+  "name": "Groceries",
+  "createdAt": {
+    "$date": "2024-11-05T22:28:37.623Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.215Z"
+  },
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "674a2a6d86801dfc125a3086"
+  },
+  "name": "Climbing Gym",
+  "createdAt": {
+    "$date": "2024-11-29T20:56:13.752Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.048Z"
+  },
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "674a39fc77c904a9dc6f0806"
+  },
+  "name": "Eating Out",
+  "createdAt": {
+    "$date": "2024-11-29T22:02:36.307Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.046Z"
+  },
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68082a29fca9e5edb42ea438"
+  },
+  "createdAt": {
+    "$date": "2025-04-22T23:45:45.987Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:07.241Z"
+  },
+  "name": "climbing gear",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b0d543d3a8d33dedf56e7d"
+  },
+  "createdAt": {
+    "$date": "2025-08-28T22:16:35.079Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.441Z"
+  },
+  "name": "Internet",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b0d8f0d3a8d33dedf57024"
+  },
+  "createdAt": {
+    "$date": "2025-08-28T22:32:16.958Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.585Z"
+  },
+  "name": "Public Transport",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b5fd1dceccd9b0643e99cb"
+  },
+  "createdAt": {
+    "$date": "2025-09-01T20:07:57.751Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:58:52.169Z"
+  },
+  "name": "Health Insurance",
+  "__v": 0,
+  "category": [
+    "taxes"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b5fea7ceccd9b0643e9a3b"
+  },
+  "createdAt": {
+    "$date": "2025-09-01T20:14:31.693Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:41.812Z"
+  },
+  "name": "Social Security",
+  "__v": 0,
+  "category": [
+    "taxes"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b5fee2ceccd9b0643e9a82"
+  },
+  "createdAt": {
+    "$date": "2025-09-01T20:15:30.687Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.041Z"
+  },
+  "name": "Rent",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b6299a39577966f9291c58"
+  },
+  "createdAt": {
+    "$date": "2025-09-01T23:17:46.471Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.700Z"
+  },
+  "name": "Courses",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68b9e64ad612fc08e0ce8d95"
+  },
+  "createdAt": {
+    "$date": "2025-09-04T19:19:38.134Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.710Z"
+  },
+  "name": "Clothing",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c0bcee0c30c50090ec935c"
+  },
+  "createdAt": {
+    "$date": "2025-09-09T23:49:02.392Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.702Z"
+  },
+  "name": "Bike",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c0bd530c30c50090ec93b6"
+  },
+  "createdAt": {
+    "$date": "2025-09-09T23:50:43.208Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:58:20.518Z"
+  },
+  "name": "Subscriptions",
+  "__v": 0,
+  "category": [
+    "personalRecurring",
+    "business"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c2a47dd363887a99d987cb"
+  },
+  "createdAt": {
+    "$date": "2025-09-11T10:29:17.009Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.033Z"
+  },
+  "name": "Water",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c2a4c4d363887a99d987f4"
+  },
+  "createdAt": {
+    "$date": "2025-09-11T10:30:28.570Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:49.862Z"
+  },
+  "name": "Phone",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c4717a481668a917527f48"
+  },
+  "createdAt": {
+    "$date": "2025-09-12T19:16:10.259Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:49.858Z"
+  },
+  "name": "Take-out",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c92a779a2fb22998203eaa"
+  },
+  "createdAt": {
+    "$date": "2025-09-16T09:14:31.770Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.718Z"
+  },
+  "name": "Gifts",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68c967d34c5110b259dbd207"
+  },
+  "createdAt": {
+    "$date": "2025-09-16T13:36:19.336Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.704Z"
+  },
+  "name": "Tools/Equipment ",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68ca7da7a2391c8a6d841c7b"
+  },
+  "createdAt": {
+    "$date": "2025-09-17T09:21:43.540Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:59.344Z"
+  },
+  "name": "Car",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cc9a217b7320f709d629a6"
+  },
+  "createdAt": {
+    "$date": "2025-09-18T23:47:45.060Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.713Z"
+  },
+  "name": "Home improvement",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68ce60c8d36c5858ac00ad45"
+  },
+  "createdAt": {
+    "$date": "2025-09-20T08:07:36.864Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.695Z"
+  },
+  "name": "Art supplies",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68d183d00fdfca38cf40a6bc"
+  },
+  "createdAt": {
+    "$date": "2025-09-22T17:13:52.827Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:59.353Z"
+  },
+  "name": "Skincare",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68d1844d625ddda527fb2b66"
+  },
+  "createdAt": {
+    "$date": "2025-09-22T17:15:57.263Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:59.357Z"
+  },
+  "name": "Hygiene",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de3a119c191483f661a5da"
+  },
+  "createdAt": {
+    "$date": "2025-10-02T08:38:41.251Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:57:58.314Z"
+  },
+  "name": "Book keeping",
+  "__v": 0,
+  "category": [
+    "taxes",
+    "business"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68e2c5f1fb2e6ae37629d1c7"
+  },
+  "createdAt": {
+    "$date": "2025-10-05T19:24:33.224Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:59.350Z"
+  },
+  "name": "Taxi",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68eb5b1fdede6159be99f6ae"
+  },
+  "createdAt": {
+    "$date": "2025-10-12T07:39:11.183Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:59.356Z"
+  },
+  "name": "Parking",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f2cb9fe1aff89d8d9b9dcd"
+  },
+  "createdAt": {
+    "$date": "2025-10-17T23:05:03.549Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.698Z"
+  },
+  "name": "Flights",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f754c70a46befcd636a4b5"
+  },
+  "createdAt": {
+    "$date": "2025-10-21T09:39:19.069Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:49.865Z"
+  },
+  "name": "Electricity",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f754f80a46befcd636a4dc"
+  },
+  "createdAt": {
+    "$date": "2025-10-21T09:40:08.731Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:41.816Z"
+  },
+  "name": "Income Tax",
+  "__v": 0,
+  "category": [
+    "taxes"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6921b4eb68a1edf3359cc807"
+  },
+  "createdAt": {
+    "$date": "2025-11-22T13:04:43.676Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.716Z"
+  },
+  "name": "Moving",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6921c84f68a1edf3359cd260"
+  },
+  "createdAt": {
+    "$date": "2025-11-22T14:27:27.022Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:53:50.036Z"
+  },
+  "name": "Wife",
+  "__v": 0,
+  "category": [
+    "personalRecurring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6923a8a2f825d65619ea9b60"
+  },
+  "createdAt": {
+    "$date": "2025-11-24T00:36:50.284Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.693Z"
+  },
+  "name": "Travel",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6928669c65ad3b0a2054bacd"
+  },
+  "createdAt": {
+    "$date": "2025-11-27T14:56:28.351Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:55:06.690Z"
+  },
+  "name": "Health",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "693f4dd5cf16f35bee1986da"
+  },
+  "createdAt": {
+    "$date": "2025-12-14T23:52:53.051Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-07T11:52:14.512Z"
+  },
+  "name": "Hosting Guests",
+  "__v": 0,
+  "category": [
+    "personalOneOff"
+  ]
+},
+{
+  "_id": {
+    "$oid": "698f33dbf5c94b779b87143a"
+  },
+  "createdAt": {
+    "$date": "2026-02-13T14:23:23.612Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-13T14:23:23.612Z"
+  },
+  "name": "Lumber",
+  "category": [
+    "personalOneOff"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "699052b0833a24f2b075122c"
+  },
+  "createdAt": {
+    "$date": "2026-02-14T10:47:12.988Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-14T10:47:12.988Z"
+  },
+  "name": "Entertainment",
+  "category": [
+    "personalRecurring",
+    "personalOneOff"
+  ],
+  "__v": 0
+}]
