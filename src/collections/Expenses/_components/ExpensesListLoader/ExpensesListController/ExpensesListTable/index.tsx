@@ -8,6 +8,7 @@ import Link from "next/link";
 import H3 from "@/components/styledComponents/H3";
 import { capitalizeFirstLetter } from "@/utilities/string/capitalizeFirstLetter";
 import { roundToDecimal } from "@/utilities/math/round";
+import P from "@/components/styledComponents/P";
 
 type Props = {
 	expensesByDate?: Map<string, Expense[]>;
@@ -47,7 +48,6 @@ const ExpensesListTable = ({ expensesByDate, expensesByCategory, sortBy }: Props
 	}, [expensesByDate, expensesByCategory, sortBy]);
 
 	if (expensesByDate) {
-
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="w-full bg-zinc-400 bg-opacity-25 p-8 rounded-md flex justify-center">
@@ -95,12 +95,41 @@ const ExpensesListTable = ({ expensesByDate, expensesByCategory, sortBy }: Props
 		</div>
 		);
 	}
-
+	
 	if (expensesByCategory) {
+		let variableExpenditure: number = 0;
+		let fixedExpenditure: number = 0;
+		for (const category of Array.from(expensesByCategory.keys())) {
+			if (category === "taxes" || category === "business") {
+				for (const expenses of Array.from(expensesByCategory.get(category)?.values() || [])) {
+					const total = _getTotal(expenses.map((doc: Expense) => doc.amount || 0));
+					fixedExpenditure += total;
+				}
+			} else {
+				for (const expenses of Array.from(expensesByCategory.get(category)?.values() || [])) {
+					const total = _getTotal(expenses.map((doc: Expense) => doc.amount || 0));
+					variableExpenditure += total;
+				}
+			}
+
+			
+		}
+		const today = new Date();
+		const dayOfMonth = today.getDate();
+		const dailyExpenditure = (variableExpenditure / dayOfMonth);
+		const now = new Date();
+		// month is 0-indexed (Jan=0, Feb=1, etc.)
+		// We get the next month and set the day to 0
+		const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+		const projectedExpenditure = dailyExpenditure * daysInMonth;
 		return (
 			<div className="flex flex-col gap-4">
-			<div className="w-full bg-zinc-400 bg-opacity-25 p-8 rounded-md flex justify-center">
-				<H3>Monthly Total: &euro; {_formatCurrency(total || 0)}</H3>
+			<div className="w-full bg-zinc-400 bg-opacity-25 p-8 rounded-md flex flex-col items-center justify-center">
+					<H3>Monthly Total: &euro; {_formatCurrency(total || 0)}</H3>
+					<P>Variable: {_formatCurrency(variableExpenditure)} | Fixed: {_formatCurrency(fixedExpenditure)}</P>
+					<P>Daily variable expenditure: {_formatCurrency(dailyExpenditure)}</P>
+					<P>Projected variable expenditure: {_formatCurrency(projectedExpenditure)}</P>
+					<P>Projected total expenditure: {_formatCurrency(projectedExpenditure + fixedExpenditure)}</P>
 			</div>
 			<div id="expenses_list_table_container" className="w-full">
 					{
