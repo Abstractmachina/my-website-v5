@@ -38,4 +38,14 @@ export default buildConfig({
   }),
   sharp,
   plugins: [],
+  cors: {
+    origins: [
+      'http://localhost:3000',
+      'https://my-website-v5.vercel.app',
+    ]
+  },
+  csrf: [
+      'http://localhost:3000',
+      'https://my-website-v5.vercel.app',
+    ]
 })
