@@ -7,10 +7,10 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import Expenses from './collections/Expenses'
-import ExpenseTags from './collections/ExpenseTags'
-import Income from './collections/Income'
+import ExpenseTags from './collections/personal/ExpenseTags'
+import Income from './collections/personal/Income'
 import Budget from './globals/personal/Budget'
+import Expenses from './collections/personal/Expenses'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

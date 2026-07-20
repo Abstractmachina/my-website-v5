@@ -99,7 +99,7 @@ const Expenses: CollectionConfig = {
     components: {
       views: {
         list: {
-          Component: '/collections/Expenses/_components/ExpensesListLoader/index',
+          Component: '/collections/personal/Expenses/_components/ExpensesListLoader/index',
         },
       },
     },
@@ -117,66 +117,26 @@ const Expenses: CollectionConfig = {
       type: 'select',
       required: true,
       options: expenseCategoriesArray,
-      // options: [
-      //   {
-      //     label: 'Personal Recurring',
-      //     value: 'personalRecurring',
-      //   },
-      //   {
-      //     label: "Personal One-Off",
-      //     value: 'personalOneOff',
-      //   },
-      //   {
-      //     label: "Investments & Savings",
-      //     value: 'investments',
-      //   },
-      //   {
-      //     label: 'Taxes',
-      //     value: 'taxes',
-      //   },
-      //   {
-      //     label: 'Business',
-      //     value: 'business',
-      //   },
-      //   {
-      //     label: 'Food',
-      //     value: 'food',
-      //   },
-      //   {
-      //     label: 'Shelter',
-      //     value: 'shelter',
-      //   },
-      //   {
-      //     label: 'Transport',
-      //     value: 'transport',
-      //   },
-      //   {
-      //     label: 'Health',
-      //     value: 'health',
-      //   },
-      //   {
-      //     label: 'Fitness',
-      //     value: 'fitness',
-      //   },
-      //   {
-      //     label: 'Education',
-      //     value: 'education',
-      //   },
-      //   {
-      //     label: 'Wife',
-      //     value: 'wife',
-      //   },
-      //   {
-      //     label: 'Non-Essential',
-      //     value: 'non-essential',
-      //   },
-      // ],
     },
     {
       name: 'tag',
       type: 'relationship',
       relationTo: 'expenseTags',
       index: true,
+      filterOptions: ({ relationTo, siblingData, data }) => {
+        // Tell TypeScript that siblingData contains an optional 'category' string
+        const categoryData = siblingData as { category?: string };
+
+        if (!categoryData?.category) {
+          return false;
+        }
+
+        return {
+          category: {
+            equals: categoryData.category,
+          },
+        }
+      },
     },
     {
       name: 'comment',
