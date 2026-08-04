@@ -30,3 +30,5 @@ jobs:
       # 4. Run tests
       - name: Run tests
         run: pnpm test
+        env:
+          PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
