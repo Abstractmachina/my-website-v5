@@ -26,6 +26,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Run tests
         run: pnpm test:unit && pnpm test:int
+        env:
+          PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
 
 
   e2e:
