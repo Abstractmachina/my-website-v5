@@ -28,7 +28,9 @@ jobs:
         run: pnpm test:unit && pnpm test:int
 
 
-  test:
+  e2e:
+    name: End-to-End Tests
+    needs: unit-and-integration
     runs-on: ubuntu-latest
     
     services:
