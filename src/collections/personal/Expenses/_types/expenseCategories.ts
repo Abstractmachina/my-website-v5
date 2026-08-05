@@ -1,4 +1,9 @@
-const expenseCategoriesArray = [
+type ExpenseCategory = {
+  label: string;
+  value: string;
+};
+
+const expenseCategoriesArray : ExpenseCategory[] = [
   {
     label: 'Personal Recurring',
     value: 'personalRecurring',
@@ -55,3 +60,4 @@ const expenseCategoriesArray = [
 
 
 export { expenseCategoriesArray };
+export type { ExpenseCategory };

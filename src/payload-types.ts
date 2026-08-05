@@ -224,6 +224,10 @@ export interface ExpenseTag {
         | 'non-essential'
       )[]
     | null;
+  /**
+   * Counts how many times this tag has been used, to sort by usage.
+   */
+  count?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -391,6 +395,7 @@ export interface ExpensesSelect<T extends boolean = true> {
 export interface ExpenseTagsSelect<T extends boolean = true> {
   name?: T;
   category?: T;
+  count?: T;
   updatedAt?: T;
   createdAt?: T;
 }

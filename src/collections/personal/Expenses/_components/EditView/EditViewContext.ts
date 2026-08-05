@@ -1,0 +1,19 @@
+import { createContext } from "react"
+import { ExpenseCategory } from "../../_types/expenseCategories";
+import { ExpenseTag } from "@/payload-types";
+
+
+type EditViewContextProps = {
+  selectedCategory: ExpenseCategory | null;
+  setSelectedCategory: (category: ExpenseCategory | null) => void;
+  selectedTag: ExpenseTag | null;
+  setSelectedTag: (tag: ExpenseTag | null) => void;
+  allTags: ExpenseTag[] | null;
+  selectedDate: Date | null;
+  setSelectedDate: (date: Date | null) => void;
+}
+
+const EditViewContext = createContext<EditViewContextProps | null>(null);
+
+export { EditViewContext };
+export type { EditViewContextProps };

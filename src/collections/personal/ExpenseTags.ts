@@ -27,6 +27,14 @@ const ExpenseTags: CollectionConfig = {
       options: expenseCategoriesArray,
       hasMany: true,
     },
+    {
+      name: 'count',
+      type: 'number',
+      admin: {
+        readOnly: true,
+        description: 'Counts how many times this tag has been used, to sort by usage.',
+      }
+    }
   ],
 }
 
