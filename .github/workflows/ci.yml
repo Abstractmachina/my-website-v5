@@ -13,7 +13,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres
         env:
           POSTGRES_USER: test_user
           POSTGRES_PASSWORD: test_password
@@ -25,7 +25,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-          
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
         run: pnpm test:unit && pnpm test:int
         env:
           PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
-
+          DATABASE_URI: "postgres://test_user:test_password@localhost:5432/test_db"
 
   e2e:
     name: End-to-End Tests
