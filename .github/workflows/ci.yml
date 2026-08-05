@@ -44,7 +44,7 @@ jobs:
         run: pnpm test:unit && pnpm test:int
         env:
           PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
-          DATABASE_URI: "postgres://test_user:test_password@localhost:5432/test_db"
+          DATABASE_URL: "postgres://test_user:test_password@localhost:5432/test_db"
 
   e2e:
     name: End-to-End Tests
@@ -94,4 +94,4 @@ jobs:
         run: pnpm test
         env:
           PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
-          DATABASE_URI: "postgres://test_user:test_password@localhost:5432/test_db"
+          DATABASE_URL: "postgres://test_user:test_password@localhost:5432/test_db"
