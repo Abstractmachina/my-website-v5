@@ -66,28 +66,26 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. Install pnpm FIRST
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9 # Use the same major version you use locally
 
-      # 2. Setup Node and enable pnpm caching
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "pnpm" # This speeds up future runs automatically!
 
-      # 3. Install dependencies using pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
 
       # 4. Run tests
       - name: Run tests
