@@ -13,7 +13,7 @@ type Props = {
 const EditViewController = ({ children, initialTags }: Props & PropsWithChildren) => {
   const [selectedCategory, setSelectedCategory] = useState<ExpenseCategory | null>(null);
   const [selectedTag, setSelectedTag] = useState<ExpenseTag | null>(null);
-  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   
   return (
     <EditViewContext.Provider value={
