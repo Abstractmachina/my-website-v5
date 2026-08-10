@@ -2,7 +2,8 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev" ]
+
   pull_request:
     branches: [ "main" ]
 
@@ -40,7 +41,7 @@ jobs:
           cache: "pnpm" # This speeds up future runs automatically!
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Run tests
+      - name: Run Unit & Integration Tests
         run: pnpm test:unit && pnpm test:int
         env:
           PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
@@ -87,9 +88,13 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
-      # 4. Run tests
-      - name: Run tests
+      - name: Run E2E Tests
         run: pnpm test
         env:
           PAYLOAD_SECRET: "any-random-string-for-testing" # Inject a dummy secret for tests
           DATABASE_URL: "postgres://test_user:test_password@localhost:5432/test_db"
+
+
+          # If any test above fails, GitHub skips this step entirely.
+      - name: 🚀 Auto-Promote to Main
+        run: git push origin HEAD:refs/heads/main
