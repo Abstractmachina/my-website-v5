@@ -7,6 +7,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# allow workflow to write to this repo, 
+# needed for auto-promotion
+permissions:
+  contents: write
+
 jobs:
   unit-and-integration:
     name: Unit and Integration Tests
