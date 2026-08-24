@@ -4,6 +4,8 @@ import { ExpenseTag } from "@/payload-types";
 
 
 type EditViewContextProps = {
+  amount: number | null;
+  setAmount: (amount: number | null) => void;
   selectedCategory: ExpenseCategory | null;
   setSelectedCategory: (category: ExpenseCategory | null) => void;
   selectedTag: ExpenseTag | null;
@@ -11,6 +13,9 @@ type EditViewContextProps = {
   allTags: ExpenseTag[] | null;
   selectedDate: Date | null;
   setSelectedDate: (date: Date | null) => void;
+  comment: string | null;
+  setComment: (comment: string | null) => void;
+  submit: () => void;
 }
 
 const EditViewContext = createContext<EditViewContextProps | null>(null);
