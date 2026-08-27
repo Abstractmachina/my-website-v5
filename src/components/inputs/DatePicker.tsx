@@ -39,6 +39,9 @@ function DatePicker({value, onChange } : Props) {
       // footer={
       //   selected ? `Selected: ${selected?.toISOString()}` : "Pick a day."
       // }
+      classNames={{
+        selected: 'bg-my-color-400',
+      }}
     />
   );
 };

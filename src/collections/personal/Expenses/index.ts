@@ -99,11 +99,11 @@ const Expenses: CollectionConfig = {
     components: {
       views: {
         list: {
-          Component: '/collections/personal/Expenses/_components/ListView/index',
+          Component: '/collections/personal/Expenses/_views/ListView/index',
         },
         edit: {
           default: {
-            Component: '/collections/personal/Expenses/_components/EditView',
+            Component: '/collections/personal/Expenses/_views/EditView',
           }
         }
       },

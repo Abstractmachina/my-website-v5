@@ -1,33 +1,17 @@
-// @tailwind utilities;
+/* Define the layers explicitly */
+@layer theme, base, components, utilities;
 
-// @layer theme {
-//   @import 'tailwindcss/theme.css';
-// }
+/* Import theme and utilities, but SKIP preflight (base) to protect Payload */
+@import 'tailwindcss/theme.css' layer(theme);
+/* @import 'tailwindcss/preflight.css' layer(base); */
+@import 'tailwindcss/utilities.css' layer(utilities);
 
-// @layer base {
-//   .twp {
-//     @import 'tailwindcss/preflight.css';
-//   }
+/* Optional: Add this if you want Payload's dark mode toggle to work with Tailwind's dark: prefix */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-//   .twp.no-twp {
-//     *,
-//     ::after,
-//     ::before,
-//     ::backdrop,
-//     ::file-selector-button {
-//       all: revert-layer;
-//     }
-//   }
-// }
-
-// @layer components;
-
-// @layer utilities {
-//   @import 'tailwindcss/utilities.css';
-// }
-
-// @import url('./tailwind-admin.css');
-
-// @tailwind base; <- do not addCode feature
-@tailwind components;
-@tailwind utilities;
+/* Add your custom colors right here! */
+@theme {
+  --color-my-color-400: #8b5cf6;
+  --color-my-color-500: #7c3aed;
+  --color-expense-green: #22c55e;
+}

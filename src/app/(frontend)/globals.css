@@ -1,8 +1,10 @@
-/* @import "tailwindcss"; */
-/* @tailwind base; */
-@tailwind components;
-@tailwind utilities;
+/* 1. The new v4 import (replaces all @tailwind directives) */
+@import "tailwindcss";
 
+/* 2. Tell Tailwind v4 to trigger dark mode based on your data-theme attribute */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* 3. Keep this! It prevents the "flash of unstyled theme" (FOUC) on page load */
 html {
   opacity: 0;
 }
