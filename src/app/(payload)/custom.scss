@@ -6,6 +6,13 @@
 /* @import 'tailwindcss/preflight.css' layer(base); */
 @import 'tailwindcss/utilities.css' layer(utilities);
 
+/* explicitly tell Vercel's Tailwind scanner where your Payload React components live */
+@source "../../collections";
+@source "../(payload)";
+@source "../../components";
+@source "../../globals";
+/* Adjust the paths depending on your exact folder structure! */
+
 /* Optional: Add this if you want Payload's dark mode toggle to work with Tailwind's dark: prefix */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
