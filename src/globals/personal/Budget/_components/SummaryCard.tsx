@@ -1,37 +1,37 @@
-'use client'
+'use client';
 
-import Loader from '@/components/animated/Loader'
-import H2 from '@/components/style/H2'
-import H3 from '@/components/style/H3'
-import P from '@/components/style/P'
-import { Separator } from '@/components/ui/separator'
-import { Expense, Income } from '@/payload-types'
-import { roundToDecimal } from '@/utilities/math/round'
-import React, { useMemo } from 'react'
+import Loader from '@/components/animated/Loader';
+import H2 from '@/components/style/H2';
+import H3 from '@/components/style/H3';
+import P from '@/components/style/P';
+import { Separator } from '@/components/shadcn/separator';
+import { Expense, Income } from '@/payload-types';
+import { roundToDecimal } from '@/utilities/math/round';
+import React, { useMemo } from 'react';
 
 type Props = {
-  expenses?: Expense[] | null
-  income?: Income[] | null
-}
+  expenses?: Expense[] | null;
+  income?: Income[] | null;
+};
 
 const SummaryCard = ({ expenses, income }: Props) => {
-  const loading: boolean = !expenses || !income
+  const loading: boolean = !expenses || !income;
 
   const totalIncome = useMemo<number>(() => {
-    if (!income) return 0
-    return income.reduce((acc, curr) => acc + curr.amount, 0)
-  }, [income])
+    if (!income) return 0;
+    return income.reduce((acc, curr) => acc + curr.amount, 0);
+  }, [income]);
 
   const totalExpenses = useMemo<number>(() => {
-    if (!expenses) return 0
-    return expenses.reduce((acc, curr) => acc + (curr.amount || 0), 0)
-  }, [expenses])
+    if (!expenses) return 0;
+    return expenses.reduce((acc, curr) => acc + (curr.amount || 0), 0);
+  }, [expenses]);
 
-  const currentDate = new Date().getDate()
-  const dailyExpenditure = totalExpenses / currentDate
-  const currentWeek = currentDate / 7
-  const weeklyExpenditure = totalExpenses / currentWeek
-  const projectedExpenditure = dailyExpenditure * 30
+  const currentDate = new Date().getDate();
+  const dailyExpenditure = totalExpenses / currentDate;
+  const currentWeek = currentDate / 7;
+  const weeklyExpenditure = totalExpenses / currentWeek;
+  const projectedExpenditure = dailyExpenditure * 30;
 
   return (
     <section className="flex flex-col gap-8 w-full justify-between bg-zinc-700 rounded-lg p-8">
@@ -98,7 +98,7 @@ const SummaryCard = ({ expenses, income }: Props) => {
         </>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default SummaryCard
+export default SummaryCard;

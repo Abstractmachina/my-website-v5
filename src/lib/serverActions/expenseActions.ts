@@ -70,3 +70,4 @@ export async function updateExpenses(
     throw new Error(`Failed to update expenses.`);
   }
 }
+

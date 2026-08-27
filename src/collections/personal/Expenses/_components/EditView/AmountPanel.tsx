@@ -25,14 +25,12 @@ const AmountPanel = (props: Props) => {
     
     // Optional: Auto-format to 2 decimals on blur (e.g., turn "12.5" into "12.50")
     if (inputValue !== "") {
-      console.log("input? ", Number(inputValue).toFixed(2))
       setInputValue(Number(inputValue).toFixed(2));
     }
   }
 
   return (
     <div className="flex justify-end items-end p-8 gap-2">
-      <p>inputvalue: {inputValue}</p>
       <input
         className="text-[8rem] w-full leading-tight h-40 text-right bg-transparent border-none"
         type="text"

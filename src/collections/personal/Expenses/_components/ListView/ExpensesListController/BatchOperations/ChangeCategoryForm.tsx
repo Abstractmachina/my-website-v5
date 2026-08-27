@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Button } from '@/components/ui/button'
-import { useUpdateExpensesMutation } from '@/lib/mutations/expenseMutations'
-import { Label } from '@/components/ui/label'
+import { Button } from '@/components/shadcn/button';
+import { useUpdateExpensesMutation } from '@/lib/mutations/expenseMutations';
+import { Label } from '@/components/shadcn/label';
 import {
   Select,
   SelectContent,
@@ -13,13 +13,13 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import H3 from '@/components/style/H3'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { updateExpenses } from '@/lib/serverActions/expenseActions'
-import { Expense } from '@/payload-types'
-import { useExpenseTagsQuery } from '@/lib/queries/expenseTagsQueries'
+} from '@/components/shadcn/select';
+import { RadioGroup, RadioGroupItem } from '@/components/shadcn/radio-group';
+import H3 from '@/components/style/H3';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { updateExpenses } from '@/lib/serverActions/expenseActions';
+import { Expense } from '@/payload-types';
+import { useExpenseTagsQuery } from '@/lib/queries/expenseTagsQueries';
 
 const CATEGORIES = [
   'taxes',
@@ -35,65 +35,65 @@ const CATEGORIES = [
   'education',
   'wife',
   'non-essential',
-] as const
+] as const;
 
-type Props = {}
+type Props = {};
 
 const ChangeCategoryForm = (props: Props) => {
-  const expenseTagsQuery = useExpenseTagsQuery()
+  const expenseTagsQuery = useExpenseTagsQuery();
 
-  const [sourceType, setSourceType] = useState<'category' | 'tag'>('category')
-  const [sourceCategory, setSourceCategory] = useState('')
-  const [sourceTag, setSourceTag] = useState('')
-  const [targetCategory, setTargetCategory] = useState('')
-  const [isProcessing, setIsProcessing] = useState(false)
+  const [sourceType, setSourceType] = useState<'category' | 'tag'>('category');
+  const [sourceCategory, setSourceCategory] = useState('');
+  const [sourceTag, setSourceTag] = useState('');
+  const [targetCategory, setTargetCategory] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: async (data: { where: any; data: any }) => {
-      setIsProcessing(true)
-      const result = await updateExpenses(data.where, data.data)
-      return result.docs as Expense[]
+      setIsProcessing(true);
+      const result = await updateExpenses(data.where, data.data);
+      return result.docs as Expense[];
     },
     onSuccess: async () => {
-      console.log('Expenses updated successfully.')
-      setSourceCategory('')
-      setSourceTag('')
+      console.log('Expenses updated successfully.');
+      setSourceCategory('');
+      setSourceTag('');
     },
     onSettled: () => {
-      setIsProcessing(false)
-      queryClient.invalidateQueries({ queryKey: ['expenses'] })
+      setIsProcessing(false);
+      queryClient.invalidateQueries({ queryKey: ['expenses'] });
 
       // queryClient.refetchQueries({ queryKey: ["users", "me"] });
     },
-  })
+  });
 
   async function handleOnClick() {
     if (sourceType === 'category') {
       if (!sourceCategory || !targetCategory) {
-        console.error('Missing source or target category')
-        return
+        console.error('Missing source or target category');
+        return;
       }
       mutation.mutate({
         where: { category: { equals: sourceCategory } },
         data: { category: targetCategory },
-      })
+      });
     }
     if (sourceType === 'tag') {
       if (!sourceTag || !targetCategory) {
-        console.error('Missing source tag or target category')
-        return
+        console.error('Missing source tag or target category');
+        return;
       }
       mutation.mutate({
         where: { 'tag.name': { equals: sourceTag } },
         data: { category: targetCategory },
-      })
+      });
     }
   }
 
   async function handleSelectType(value: string) {
-    console.log('selected', value)
-    setSourceType(value as 'category' | 'tag')
+    console.log('selected', value);
+    setSourceType(value as 'category' | 'tag');
   }
 
   return (
@@ -123,7 +123,7 @@ const ChangeCategoryForm = (props: Props) => {
           <Label>Source Category</Label>
           <Select
             onValueChange={(value: string) => {
-              setSourceCategory(value)
+              setSourceCategory(value);
             }}
           >
             <SelectTrigger>
@@ -145,7 +145,7 @@ const ChangeCategoryForm = (props: Props) => {
           <Label>Source Tag</Label>
           <Select
             onValueChange={(value: string) => {
-              setSourceTag(value)
+              setSourceTag(value);
             }}
             disabled={!expenseTagsQuery.isSuccess}
           >
@@ -160,7 +160,7 @@ const ChangeCategoryForm = (props: Props) => {
                     <SelectItem key={tag.id} value={tag.name}>
                       {tag.name}
                     </SelectItem>
-                  )
+                  );
                 })}
             </SelectContent>
           </Select>
@@ -171,7 +171,7 @@ const ChangeCategoryForm = (props: Props) => {
         <Label>Target Category</Label>
         <Select
           onValueChange={(value: string) => {
-            setTargetCategory(value)
+            setTargetCategory(value);
           }}
         >
           <SelectTrigger>
@@ -201,10 +201,10 @@ const ChangeCategoryForm = (props: Props) => {
         {mutation.isPending ? 'Processing...' : 'Process'}
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default ChangeCategoryForm
+export default ChangeCategoryForm;
 
 function _processable(
   sourceType: 'category' | 'tag',
@@ -214,14 +214,14 @@ function _processable(
 ): boolean {
   if (sourceType === 'category') {
     if (!sourceCategory || !targetCategory) {
-      return false
+      return false;
     }
   }
   if (sourceType === 'tag') {
     if (!sourceTag || !targetCategory) {
-      console.error('Missing source tag or target category')
-      return false
+      console.error('Missing source tag or target category');
+      return false;
     }
   }
-  return true
+  return true;
 }

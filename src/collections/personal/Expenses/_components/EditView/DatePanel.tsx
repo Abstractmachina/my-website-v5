@@ -1,10 +1,10 @@
 'use client';
 
-import DatePicker from '@/components/data/DatePicker';
+import DatePicker from '@/components/inputs/DatePicker';
 import Collapsible from '@/components/layout/Collapsible';
 import React, { useContext, useMemo } from 'react';
 import { EditViewContext } from './EditViewContext';
-import Centered from '@/components/ui/Centered';
+import Centered from '@/components/shadcn/Centered';
 
 type Props = {};
 

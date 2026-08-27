@@ -46,4 +46,8 @@
     "**/.next/**": true,
     "**/node_modules/**": true
   },
+  "colorize.languages": [
+    "javascript",
+    // ...
+  ]
 }

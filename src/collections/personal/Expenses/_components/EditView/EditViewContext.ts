@@ -16,6 +16,7 @@ type EditViewContextProps = {
   comment: string | null;
   setComment: (comment: string | null) => void;
   submit: () => void;
+  isSaving?: boolean;
 }
 
 const EditViewContext = createContext<EditViewContextProps | null>(null);

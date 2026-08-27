@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import Centered from '@/components/ui/Centered'
-import H1 from '@/components/style/H1'
-import SummaryCard from './SummaryCard'
-import H2 from '@/components/style/H2'
-import MonthViewer from './MonthViewer'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn/tabs';
+import Centered from '@/components/shadcn/Centered';
+import H1 from '@/components/style/H1';
+import SummaryCard from './SummaryCard';
+import H2 from '@/components/style/H2';
+import MonthViewer from './MonthViewer';
 
 /***
  * income metrics
@@ -28,10 +28,10 @@ import MonthViewer from './MonthViewer'
  *
  */
 
-type Props = {}
+type Props = {};
 
 const EditDefaultViewController = (props: Props) => {
-  const [selectedTab, setSelectedTab] = useState<string>('monthly')
+  const [selectedTab, setSelectedTab] = useState<string>('monthly');
 
   return (
     <Centered>
@@ -56,7 +56,7 @@ const EditDefaultViewController = (props: Props) => {
         </TabsContent>
       </Tabs>
     </Centered>
-  )
-}
+  );
+};
 
-export default EditDefaultViewController
+export default EditDefaultViewController;
