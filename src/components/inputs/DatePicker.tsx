@@ -40,7 +40,7 @@ function DatePicker({value, onChange } : Props) {
       //   selected ? `Selected: ${selected?.toISOString()}` : "Pick a day."
       // }
       classNames={{
-        selected: 'bg-my-color-400',
+        selected: 'bg-my-primary-300 text-my-fg-800',
       }}
     />
   );
