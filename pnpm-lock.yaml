@@ -89,9 +89,6 @@ importers:
       payload:
         specifier: 3.77.0
         version: 3.77.0(graphql@16.12.0)(typescript@5.7.3)
-      postcss-loader:
-        specifier: ^8.2.1
-        version: 8.2.1(postcss@8.5.6)(typescript@5.7.3)
       qs:
         specifier: ^6.15.0
         version: 6.15.0
@@ -2645,15 +2642,6 @@ packages:
     resolution: {integrity: sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==}
     engines: {node: '>=10'}
 
-  cosmiconfig@9.0.0:
-    resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      typescript: '>=4.9.5'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   croner@9.1.0:
     resolution: {integrity: sha512-p9nwwR4qyT5W996vBZhdvBCnMhicY5ytZkR4D1Xj0wuTDEiMnjwR57Q3RXYY/s0EpX6Ay3vgIcfaR+ewGHsi+g==}
     engines: {node: '>=18.0'}
@@ -2911,10 +2899,6 @@ packages:
   entities@6.0.1:
     resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
     engines: {node: '>=0.12'}
-
-  env-paths@2.2.1:
-    resolution: {integrity: sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==}
-    engines: {node: '>=6'}
 
   error-ex@1.3.4:
     resolution: {integrity: sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ==}
@@ -3512,10 +3496,6 @@ packages:
     resolution: {integrity: sha512-H0dkQoCa3b2VEeKQBOxFph+JAbcrQdE7KC0UkqwpLmv2EC4P41QXP+rqo9wYodACiG5/WM5s9oDApTU8utwj9g==}
     engines: {node: '>= 0.4'}
 
-  jiti@2.6.1:
-    resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
-    hasBin: true
-
   jiti@2.7.0:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
     hasBin: true
@@ -4102,19 +4082,6 @@ packages:
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
-
-  postcss-loader@8.2.1:
-    resolution: {integrity: sha512-k98jtRzthjj3f76MYTs9JTpRqV1RaaMhEU0Lpw9OTmQZQdppg4B30VZ74BojuBHt3F4KyubHJoXCMUeM8Bqeow==}
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      '@rspack/core': 0.x || ^1.0.0 || ^2.0.0-0
-      postcss: ^7.0.0 || ^8.0.1
-      webpack: ^5.0.0
-    peerDependenciesMeta:
-      '@rspack/core':
-        optional: true
-      webpack:
-        optional: true
 
   postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
@@ -7358,15 +7325,6 @@ snapshots:
       path-type: 4.0.0
       yaml: 1.10.2
 
-  cosmiconfig@9.0.0(typescript@5.7.3):
-    dependencies:
-      env-paths: 2.2.1
-      import-fresh: 3.3.1
-      js-yaml: 4.1.1
-      parse-json: 5.2.0
-    optionalDependencies:
-      typescript: 5.7.3
-
   croner@9.1.0: {}
 
   cross-env@7.0.3:
@@ -7529,8 +7487,6 @@ snapshots:
       tapable: 2.3.3
 
   entities@6.0.1: {}
-
-  env-paths@2.2.1: {}
 
   error-ex@1.3.4:
     dependencies:
@@ -8332,8 +8288,6 @@ snapshots:
       has-symbols: 1.1.0
       set-function-name: 2.0.2
 
-  jiti@2.6.1: {}
-
   jiti@2.7.0: {}
 
   jose@5.9.6: {}
@@ -9083,15 +9037,6 @@ snapshots:
   pluralize@8.0.0: {}
 
   possible-typed-array-names@1.1.0: {}
-
-  postcss-loader@8.2.1(postcss@8.5.6)(typescript@5.7.3):
-    dependencies:
-      cosmiconfig: 9.0.0(typescript@5.7.3)
-      jiti: 2.6.1
-      postcss: 8.5.6
-      semver: 7.7.4
-    transitivePeerDependencies:
-      - typescript
 
   postcss@8.4.31:
     dependencies:
