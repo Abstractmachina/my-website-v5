@@ -1,46 +1,46 @@
 /* Define the layers explicitly */
-@layer theme, base, components, utilities;
+// @layer theme, base, components, utilities;
 
-/* Import theme and utilities, but SKIP preflight (base) to protect Payload */
-@import 'tailwindcss/theme.css' layer(theme);
-/* @import 'tailwindcss/preflight.css' layer(base); */
-@import 'tailwindcss/utilities.css' layer(utilities);
+// /* Import theme and utilities, but SKIP preflight (base) to protect Payload */
+// @import 'tailwindcss/theme.css' layer(theme);
+// /* @import 'tailwindcss/preflight.css' layer(base); */
+// @import 'tailwindcss/utilities.css' layer(utilities);
 
-/* explicitly tell Vercel's Tailwind scanner where your Payload React components live */
-// @source "../../../src/**/*.{js,ts,jsx,tsx}";
-// @source "../../../src/app/**/*.{js,ts,jsx,tsx}";
-// @source "../../../src/collections/**/*.{js,ts,jsx,tsx}";
-// @source "../../../src/components/**/*.{js,ts,jsx,tsx}";
-// @source "../../../src/globals/**/*.{js,ts,jsx,tsx}";
+// /* explicitly tell Vercel's Tailwind scanner where your Payload React components live */
+// // @source "../../../src/**/*.{js,ts,jsx,tsx}";
+// // @source "../../../src/app/**/*.{js,ts,jsx,tsx}";
+// // @source "../../../src/collections/**/*.{js,ts,jsx,tsx}";
+// // @source "../../../src/components/**/*.{js,ts,jsx,tsx}";
+// // @source "../../../src/globals/**/*.{js,ts,jsx,tsx}";
 
-@source "../../../src";
-// @source "../../collections";
-// @source "../(payload)";
-// @source "../../components";
-// @source "../../globals";
+// @source "../../../src";
+// // @source "../../collections";
+// // @source "../(payload)";
+// // @source "../../components";
+// // @source "../../globals";
 
-/* Go all the way up to the project root and aggressively scan everything inside src */
-// @source "../../../src/**/*.{js,ts,jsx,tsx}";
-// @source "../../../app/**/*.{js,ts,jsx,tsx}";
-// @source "../../../collections/**/*.{js,ts,jsx,tsx}";
-/* Adjust the paths depending on your exact folder structure! */
+// /* Go all the way up to the project root and aggressively scan everything inside src */
+// // @source "../../../src/**/*.{js,ts,jsx,tsx}";
+// // @source "../../../app/**/*.{js,ts,jsx,tsx}";
+// // @source "../../../collections/**/*.{js,ts,jsx,tsx}";
+// /* Adjust the paths depending on your exact folder structure! */
 
-/* Optional: Add this if you want Payload's dark mode toggle to work with Tailwind's dark: prefix */
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+// /* Optional: Add this if you want Payload's dark mode toggle to work with Tailwind's dark: prefix */
+// @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-/* Add your custom colors right here! */
-@theme {
-  --color-my-bg-800: #0c0c0c;
-  --color-my-fg-800: #fcfcfc;
-  --color-my-primary-100: #94d2bd;
-  --color-my-primary-200: #0a9396;
-  --color-my-primary-300: #005f73;
-  --color-my-primary-400: #001219;
-  --color-my-secondary-100: #e9d8a6;
-  --color-my-secondary-200: #ee9b00;
-  --color-my-secondary-300: #ca6702;
-  --color-my-secondary-400: #bb3e03;
-  --color-my-secondary-500: #ae2012;
-  --color-my-secondary-600: #9b2226;
+// /* Add your custom colors right here! */
+// @theme {
+//   --color-my-bg-800: #0c0c0c;
+//   --color-my-fg-800: #fcfcfc;
+//   --color-my-primary-100: #94d2bd;
+//   --color-my-primary-200: #0a9396;
+//   --color-my-primary-300: #005f73;
+//   --color-my-primary-400: #001219;
+//   --color-my-secondary-100: #e9d8a6;
+//   --color-my-secondary-200: #ee9b00;
+//   --color-my-secondary-300: #ca6702;
+//   --color-my-secondary-400: #bb3e03;
+//   --color-my-secondary-500: #ae2012;
+//   --color-my-secondary-600: #9b2226;
 
-}
+// }
