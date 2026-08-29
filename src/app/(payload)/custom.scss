@@ -7,10 +7,22 @@
 @import 'tailwindcss/utilities.css' layer(utilities);
 
 /* explicitly tell Vercel's Tailwind scanner where your Payload React components live */
-@source "../../collections";
-@source "../(payload)";
-@source "../../components";
-@source "../../globals";
+// @source "../../../src/**/*.{js,ts,jsx,tsx}";
+// @source "../../../src/app/**/*.{js,ts,jsx,tsx}";
+// @source "../../../src/collections/**/*.{js,ts,jsx,tsx}";
+// @source "../../../src/components/**/*.{js,ts,jsx,tsx}";
+// @source "../../../src/globals/**/*.{js,ts,jsx,tsx}";
+
+@source "../../../src";
+// @source "../../collections";
+// @source "../(payload)";
+// @source "../../components";
+// @source "../../globals";
+
+/* Go all the way up to the project root and aggressively scan everything inside src */
+// @source "../../../src/**/*.{js,ts,jsx,tsx}";
+// @source "../../../app/**/*.{js,ts,jsx,tsx}";
+// @source "../../../collections/**/*.{js,ts,jsx,tsx}";
 /* Adjust the paths depending on your exact folder structure! */
 
 /* Optional: Add this if you want Payload's dark mode toggle to work with Tailwind's dark: prefix */
