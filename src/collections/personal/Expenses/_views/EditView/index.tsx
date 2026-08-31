@@ -12,6 +12,8 @@ import SubmitButton from './SubmitButton';
 import Providers from './Providers';
 import { Separator } from '@/components/shadcn/separator';
 import Collapsible from '@/components/layout/Collapsible';
+import { Expense } from '@/payload-types';
+import EditViewHeader from './EditViewHeader';
 
 export const EditView = async (props: DocumentViewServerProps) => {
   const { doc, initPageResult } = props;
@@ -24,18 +26,14 @@ export const EditView = async (props: DocumentViewServerProps) => {
     depth: 0, // Keep depth low if you only need the ID and title
   });
 
-  //creating new doc
-  if (!doc) {
+  const typedDoc = doc as unknown as Expense;
+
     return (
       <Providers>
-        <EditViewController>
+        <EditViewController existingDoc={typedDoc} initialTags={tags}>
           <main className="text-white flex flex-col h-full mytheme-primary-400">
-            <div className="flex justify-between py-8 px-8">
-              <Check />
-              <p className="text-2xl text-white ">Add new Expense</p>
-              <X />
-            </div>
-            <Separator className="w-full bg-white" />
+
+            <EditViewHeader />
             <AmountPanel />
             <Collapsible>
               <CategoriesPanel />
@@ -48,9 +46,7 @@ export const EditView = async (props: DocumentViewServerProps) => {
         </EditViewController>
       </Providers>
     );
-  }
 
-  return <p className="text-2xl text-white">Edit Expense</p>;
 };
 
 export default EditView;

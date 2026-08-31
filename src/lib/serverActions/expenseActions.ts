@@ -24,7 +24,7 @@ export async function createExpense(
 
 
 export async function updateExpense(
-  id: string,
+  id: string | number,
   data: any
 ): Promise<Expense> {
   const payload = await getPayload({ config })

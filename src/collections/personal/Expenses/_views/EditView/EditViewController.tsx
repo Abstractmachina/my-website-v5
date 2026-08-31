@@ -1,42 +1,68 @@
 'use client';
 
-import React, { PropsWithChildren, useState } from 'react';
-import { ExpenseCategory } from '../../_types/expenseCategories';
+import { PropsWithChildren, useState } from 'react';
+import { ExpenseCategory, getExpenseCategory } from '../../_types/expenseCategories';
 import { EditViewContext } from './EditViewContext';
-import { ExpenseTag } from '@/payload-types';
-import { createExpense } from '@/lib/serverActions/expenseActions';
+import { Expense, ExpenseTag } from '@/payload-types';
+import { createExpense, updateExpense } from '@/lib/serverActions/expenseActions';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { sendMessage } from '@/components/informative/sendMessage';
 
 type Props = {
+  existingDoc?: Expense;
   initialTags?: ExpenseTag[];
 };
 
-const EditViewController = ({ children, initialTags }: Props & PropsWithChildren) => {
+const EditViewController = ({ children, initialTags, existingDoc }: Props & PropsWithChildren) => {
+  const isNew = !existingDoc?.id;
+
   const router = useRouter();
-  const [amount, setAmount] = useState<number | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<ExpenseCategory | null>(null);
-  const [selectedTag, setSelectedTag] = useState<ExpenseTag | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
-  const [comment, setComment] = useState<string | null>(null);
+  const [amount, setAmount] = useState<number | null>(isNew ? null : existingDoc?.amount || null);
+  const [selectedCategory, setSelectedCategory] = useState<ExpenseCategory | null>(
+    isNew ? null : getExpenseCategory(existingDoc?.category) || null,
+  );
+  const [selectedTag, setSelectedTag] = useState<ExpenseTag | null>(
+    isNew || !existingDoc.tag
+      ? null
+      : typeof existingDoc?.tag !== 'number'
+        ? existingDoc?.tag
+        : initialTags?.find((tag) => tag.id === existingDoc?.tag) || null,
+  );
+  const [selectedDate, setSelectedDate] = useState<Date | null>(
+    isNew ? new Date() : new Date(existingDoc?.date),
+  );
+  const [comment, setComment] = useState<string | null>(
+    isNew ? null : existingDoc?.comment || null,
+  );
 
   const [isSaving, setIsSaving] = useState(false);
-
 
   const saveMutation = useMutation({
     mutationFn: async () => {
       setIsSaving(true);
-      const result = await createExpense({
-        amount,
-        category: selectedCategory?.value,
-        tag: selectedTag?.id,
-        date: selectedDate?.toISOString(),
-        comment,
-      });
-      return result; 
+
+      let result: null | Expense = null;
+      if (isNew) {
+        result = await createExpense({
+          amount,
+          category: selectedCategory?.value,
+          tag: selectedTag?.id,
+          date: selectedDate?.toISOString(),
+          comment,
+        });
+      } else {
+        result = await updateExpense(existingDoc?.id || '', {
+          amount,
+          category: selectedCategory?.value,
+          tag: selectedTag?.id,
+          date: selectedDate?.toISOString(),
+          comment,
+        });
+      }
+      return result;
     },
-    onError: (error) => {
+    onError: (error: any) => {
       sendMessage({ message: 'Error creating expense', description: error.message });
     },
     onSuccess: (data) => {
@@ -56,7 +82,7 @@ const EditViewController = ({ children, initialTags }: Props & PropsWithChildren
     },
     onSettled: () => {
       setIsSaving(false);
-    }
+    },
   });
 
   async function submit() {
@@ -81,6 +107,7 @@ const EditViewController = ({ children, initialTags }: Props & PropsWithChildren
         setComment,
         submit,
         isSaving,
+        isNew,
       }}
     >
       {children}

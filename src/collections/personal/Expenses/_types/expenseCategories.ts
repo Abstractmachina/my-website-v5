@@ -58,6 +58,8 @@ const expenseCategoriesArray : ExpenseCategory[] = [
   },
 ];
 
+const getExpenseCategory = (value: string) : ExpenseCategory | undefined => expenseCategoriesArray.find((category) => category.value === value);
 
-export { expenseCategoriesArray };
+
+export { expenseCategoriesArray, getExpenseCategory };
 export type { ExpenseCategory };
