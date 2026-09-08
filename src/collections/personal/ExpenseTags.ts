@@ -30,12 +30,14 @@ const ExpenseTags: CollectionConfig = {
     {
       name: 'count',
       type: 'number',
+      defaultValue: 0,
       admin: {
         readOnly: true,
         description: 'Counts how many times this tag has been used, to sort by usage.',
-      }
-    }
+      },
+    },
   ],
+
 }
 
 export default ExpenseTags

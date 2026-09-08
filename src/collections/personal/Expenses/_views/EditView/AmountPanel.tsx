@@ -30,7 +30,7 @@ const AmountPanel = (props: Props) => {
   }
 
   return (
-    <div className="flex justify-end items-end p-8 gap-2">
+    <div className="flex justify-end items-end p-8 gap-4">
       <input
         className="text-[8rem] w-full leading-tight h-40 text-right bg-transparent border-none"
         type="text"
@@ -39,8 +39,9 @@ const AmountPanel = (props: Props) => {
         onChange={handleChange}
         onBlur={handleBlur}
         step="0.01"
+        autoFocus
       />
-      <div className="size-12 shrink-0 mb-6 border border-solid border-white rounded-full flex justify-center items-center text-2xl">
+      <div className="size-12 shrink-0 mb-7 border border-solid border-white rounded-full flex justify-center items-center text-2xl">
         &euro;
       </div>
     </div>

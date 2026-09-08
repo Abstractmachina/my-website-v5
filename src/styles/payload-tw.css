@@ -7,7 +7,7 @@
 
 
 
-@source "../../../src";
+@source "..";
 
 
 /* Optional: Add this if you want Payload's dark mode toggle to work with Tailwind's dark: prefix */
@@ -15,7 +15,8 @@
 
 /* Add your custom colors right here! */
 @theme {
-  --color-my-bg-800: #0c0c0c;
+  --color-my-bg-700: #242424; 
+  --color-my-bg-800: #141414; 
   --color-my-fg-800: #fcfcfc;
   --color-my-primary-100: #94d2bd;
   --color-my-primary-200: #0a9396;

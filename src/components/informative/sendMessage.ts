@@ -14,8 +14,9 @@ const sendMessage = (args: {
   position?: MessagePosition;
   duration?: number;
   className?: string;
+  variant?: 'info' | 'success' | 'warning' | 'error';
 }) => {
-  const { message, description, position, duration, className } = args;
+  const { message, description, position, duration, className, variant } = args;
 
   if (duration && duration <= 0) throw new Error('Duration must be greater than 0.');
 

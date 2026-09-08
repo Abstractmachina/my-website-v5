@@ -9,17 +9,18 @@ import Carousel from '@/components/layout/Carousel';
 import { cn } from '@/utilities/ui';
 
 type Props = {
-  allTags?: ExpenseTag[] | null;
 };
 
-const TagsPanel = ({ allTags }: Props) => {
-  const paginatedTags = useMemo<ExpenseTag[][]>(() => {
-    if (!allTags) return [];
+const TagsPanel = ({ }: Props) => {
 
-    return chunkArray(allTags, 9);
-  }, [allTags]);
-  
   const ctx = useContext(EditViewContext);
+  
+  const paginatedTags = useMemo<ExpenseTag[][]>(() => {
+    if (!ctx?.allTags) return [];
+
+    return chunkArray(ctx?.allTags, 9);
+  }, [ctx?.allTags]);
+  
 
 
   const handleSelectTag = (tag: ExpenseTag) => {

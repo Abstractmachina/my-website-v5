@@ -29,6 +29,7 @@ export async function updateExpense(
 ): Promise<Expense> {
   const payload = await getPayload({ config })
 
+  console.log("Updating Expense:", id, data);
   try {
 
     const result = await payload.update({

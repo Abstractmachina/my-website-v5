@@ -1,6 +1,6 @@
 'use client';
 
-import { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren, useMemo, useState } from 'react';
 import { ExpenseCategory, getExpenseCategory } from '../../_types/expenseCategories';
 import { EditViewContext } from './EditViewContext';
 import { Expense, ExpenseTag } from '@/payload-types';
@@ -29,6 +29,21 @@ const EditViewController = ({ children, initialTags, existingDoc }: Props & Prop
         ? existingDoc?.tag
         : initialTags?.find((tag) => tag.id === existingDoc?.tag) || null,
   );
+
+  const availableTags = useMemo<ExpenseTag[]>(() => {
+    // no category selected, return all tags
+    if (!selectedCategory) {
+      if (initialTags && initialTags.length > 0) return initialTags;
+      return [];
+    }
+
+    // category selected, return tags for that category
+    return initialTags?.filter((tag) => tag.category?.includes(selectedCategory?.value)) || [];
+  }, [initialTags, selectedCategory]);
+
+
+
+
   const [selectedDate, setSelectedDate] = useState<Date | null>(
     isNew ? new Date() : new Date(existingDoc?.date),
   );
@@ -40,10 +55,16 @@ const EditViewController = ({ children, initialTags, existingDoc }: Props & Prop
 
   const saveMutation = useMutation({
     mutationFn: async () => {
+
+      if (!selectedCategory) {
+        sendMessage({ message: 'Please select a category' });
+        return;
+      }
       setIsSaving(true);
 
       let result: null | Expense = null;
       if (isNew) {
+        console.log('Creating new expense');
         result = await createExpense({
           amount,
           category: selectedCategory?.value,
@@ -98,7 +119,7 @@ const EditViewController = ({ children, initialTags, existingDoc }: Props & Prop
         setAmount,
         selectedCategory,
         setSelectedCategory,
-        allTags: initialTags || null,
+        allTags: availableTags || null,
         selectedTag,
         setSelectedTag,
         selectedDate,

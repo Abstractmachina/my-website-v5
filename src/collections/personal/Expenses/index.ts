@@ -1,7 +1,8 @@
-import { CollectionConfig } from 'payload'
-import LABELS from '@/LABELS'
-import { authenticated } from '@/access/authenticated'
-import { expenseCategoriesArray } from './_types/expenseCategories'
+import { CollectionConfig } from 'payload';
+import LABELS from '@/LABELS';
+import { authenticated } from '@/access/authenticated';
+import { expenseCategoriesArray } from './_types/expenseCategories';
+import { ExpenseTag } from '@/payload-types';
 
 /*
 Layer 1: Domains (Top-Level Separation)
@@ -85,7 +86,6 @@ Layer 1: Domains (Top-Level Separation)
   ✔️ Internal transfers create no noise
 */
 
-
 const Expenses: CollectionConfig = {
   slug: 'expenses',
   access: {
@@ -99,13 +99,13 @@ const Expenses: CollectionConfig = {
     components: {
       views: {
         list: {
-          Component: '/collections/personal/Expenses/_views/ListView/index',
+          Component: '/collections/personal/Expenses/_views/ListView',
         },
         edit: {
           default: {
             Component: '/collections/personal/Expenses/_views/EditView',
-          }
-        }
+          },
+        },
       },
     },
     pagination: {
@@ -140,7 +140,7 @@ const Expenses: CollectionConfig = {
           category: {
             equals: categoryData.category,
           },
-        }
+        };
       },
     },
     {
@@ -154,7 +154,7 @@ const Expenses: CollectionConfig = {
       admin: {
         date: {
           displayFormat: 'dd/MM/YYYY',
-        }
+        },
       },
       required: true,
     },
@@ -162,8 +162,52 @@ const Expenses: CollectionConfig = {
       name: 'recurring',
       type: 'checkbox',
       defaultValue: false,
-    }
+    },
   ],
-}
+  hooks: {
+    afterChange: [
+      async ({ doc, previousDoc, req }) => {
+        // update count for used tag
+        let tag: number | ExpenseTag = doc.tag;
+        if (!tag) return doc;
 
-export default Expenses
+        if (typeof tag === 'number') {
+          tag = await req.payload.findByID({
+            req,
+            collection: 'expenseTags',
+            id: tag,
+          });
+        }
+
+        const allExpensesWithTag = await req.payload.find({
+          req,
+          collection: 'expenses',
+          where: {
+            tag: {
+              equals: tag.id,
+            },
+          },
+        });
+
+        const docCount = allExpensesWithTag.totalDocs;
+
+        if (docCount === tag.count) {
+          return doc;
+        }
+
+        const result = await req.payload.update({
+          req,
+          collection: 'expenseTags',
+          id: tag.id,
+          data: {
+            count: docCount+1,
+          },
+        });
+
+        return doc;
+      },
+    ],
+  },
+};
+
+export default Expenses;

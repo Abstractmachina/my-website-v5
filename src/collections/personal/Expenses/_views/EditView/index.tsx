@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { DocumentViewServerProps } from 'payload';
-import { Check, X } from 'lucide-react';
 import CategoriesPanel from './CategoriesPanel';
 import EditViewController from './EditViewController';
 import TagsPanel from './TagsPanel';
@@ -10,10 +9,10 @@ import CommentPanel from './CommentPanel';
 import AmountPanel from './AmountPanel';
 import SubmitButton from './SubmitButton';
 import Providers from './Providers';
-import { Separator } from '@/components/shadcn/separator';
 import Collapsible from '@/components/layout/Collapsible';
 import { Expense } from '@/payload-types';
 import EditViewHeader from './EditViewHeader';
+import Centered from '@/components/shadcn/Centered';
 
 export const EditView = async (props: DocumentViewServerProps) => {
   const { doc, initPageResult } = props;
@@ -24,25 +23,33 @@ export const EditView = async (props: DocumentViewServerProps) => {
     collection: 'expenseTags', // Replace with your actual categories collection slug
     limit: 0, // Set a limit or use pagination if you have many
     depth: 0, // Keep depth low if you only need the ID and title
+    sort: '-count',
   });
 
   const typedDoc = doc as unknown as Expense;
 
+  const componentKey = typedDoc?.id ? typedDoc.id : `new-${Date.now()}`;
+
     return (
       <Providers>
-        <EditViewController existingDoc={typedDoc} initialTags={tags}>
-          <main className="text-white flex flex-col h-full mytheme-primary-400">
+        <EditViewController existingDoc={typedDoc} initialTags={tags} key={componentKey}>
+          
+          <Centered>
+            <main className="text-white flex flex-col h-full mytheme-primary-400">
+              <EditViewHeader />
+              <AmountPanel />
+              <Collapsible>
+                <CategoriesPanel />
+                <TagsPanel />
+                <DatePanel />
+                <CommentPanel />
+              </Collapsible>
 
-            <EditViewHeader />
-            <AmountPanel />
-            <Collapsible>
-              <CategoriesPanel />
-              <TagsPanel allTags={tags} />
-              <DatePanel />
-              <CommentPanel />
-            </Collapsible>
-            <SubmitButton className="fixed bottom-0"/>
-          </main>
+              <Centered className="fixed bottom-0">
+                <SubmitButton />
+              </Centered>
+            </main>
+          </Centered>
         </EditViewController>
       </Providers>
     );

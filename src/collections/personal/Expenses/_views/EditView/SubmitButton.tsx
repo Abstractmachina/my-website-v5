@@ -1,16 +1,18 @@
 'use client';
 
 import { Check } from 'lucide-react';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { EditViewContext } from './EditViewContext';
 import Loader from '@/components/animated/Loader';
 import { cn } from '@/utilities/ui';
+import { Button } from '@/components/shadcn/button';
 
 type Props = {
   className?: string;
+  variant?: 'small';
 };
 
-const SubmitButton = ({ className }: Props) => {
+const SubmitButton = ({ className, variant }: Props) => {
   const ctx = useContext(EditViewContext);
 
   function handleSubmit() {
@@ -18,13 +20,17 @@ const SubmitButton = ({ className }: Props) => {
   }
 
   return (
-    <button
-      className={cn('w-full flex justify-center py-8 px-8 hover:cursor-pointer', className)}
+    <Button
+      className={cn(
+        'w-full flex justify-center p-8 hover:cursor-pointer rounded-none border-none',
+        variant === 'small' && 'w-auto p-8 bg-my-bg-800 hover:bg-my-bg-700',
+        className,
+      )}
       onClick={handleSubmit}
       disabled={ctx?.isSaving}
     >
       {ctx?.isSaving ? <Loader size={23} /> : <Check />}
-    </button>
+    </Button>
   );
 };
 

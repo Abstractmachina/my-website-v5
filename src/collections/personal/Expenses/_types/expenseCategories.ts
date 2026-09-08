@@ -1,6 +1,11 @@
+import { ExpenseTag } from "@/payload-types";
+
+
+type ExpenseCategoryType = NonNullable<ExpenseTag['category']>[number];
+
 type ExpenseCategory = {
   label: string;
-  value: string;
+  value: ExpenseCategoryType;
 };
 
 const expenseCategoriesArray : ExpenseCategory[] = [
